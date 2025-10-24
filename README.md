@@ -39,11 +39,13 @@
         <img src="assets/thordata-logo.png" alt="Thordata Logo" width="200" height="200"/>
       </a>
     </td>
-    <td>
-      <strong>Thordata</strong> - Easy access to web data at scale, perfect for AI.<br/><br/>
-      A global network of 60M+ residential proxies with 99.7% availability, ensuring stable and reliable web data scraping to support AI, BI, and workflows.<br/><br/>
-      <strong>Exclusive: Use code "THOR66" for 30% off your first purchase!</strong>
-    </td>
+     <td>
+       <strong>Thordata</strong> - Easy access to web data at scale, perfect for AI.<br/><br/>
+       A global network of 60M+ residential proxies with 99.7% availability, ensuring stable and reliable web data scraping to support AI, BI, and workflows.<br/><br/>
+       <strong>🎁 Free Trial Available!</strong> Start with our free trial to experience reliable proxy infrastructure.<br/><br/>
+       <strong>💰 Exclusive: Use code "THOR66" for 30% off your first purchase!</strong><br/>
+       <strong>🔗 Register with invitation code "0HSUJ23G" or <a href="https://dashboard.thordata.com/register?invitation_code=0HSUJ23G" target="_blank">click here</a></strong>
+     </td>
   </tr>
 </table>
 
