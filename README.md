@@ -34,11 +34,11 @@
     </td>
   </tr>
   <tr>
-    <td align="center" width="220">
-      <a href="https://thordata.com" target="_blank">
-        <img src="assets/thordata-logo.png" alt="Thordata Logo" width="200" height="200"/>
-      </a>
-    </td>
+     <td align="center" width="220">
+       <a href="https://dashboard.thordata.com/register?invitation_code=0HSUJ23G" target="_blank">
+         <img src="assets/thordata-logo.png" alt="Thordata Logo" width="200" height="200"/>
+       </a>
+     </td>
      <td>
        <strong>Thordata</strong> - Easy access to web data at scale, perfect for AI.<br/><br/>
        A global network of 60M+ residential proxies with 99.7% availability, ensuring stable and reliable web data scraping to support AI, BI, and workflows.<br/><br/>
@@ -300,10 +300,12 @@ _Note: This project embraces open-source values and transparency. We love open s
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
 ### Sponsors
+
 - **[CyberYozh](https://cyberyozh.com)** for providing reliable SMS activation and proxy solutions for multi-accounting and automation
 - **[Thordata](https://thordata.com)** for powering our web scraping infrastructure with their global network of 60M+ residential proxies
 
 ### Technology Partners
+
 - **Google** for providing the Gemini AI model that powers our intelligent extraction capabilities
 - **Bright Data** for reliable scraping browser infrastructure
 - **Render** for the excellent deployment platform
