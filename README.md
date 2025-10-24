@@ -297,6 +297,11 @@ _Note: This project embraces open-source values and transparency. We love open s
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 
+### Sponsors
+- **[CyberYozh](https://cyberyozh.com)** for providing reliable SMS activation and proxy solutions for multi-accounting and automation
+- **[Thordata](https://thordata.com)** for powering our web scraping infrastructure with their global network of 60M+ residential proxies
+
+### Technology Partners
 - **Google** for providing the Gemini AI model that powers our intelligent extraction capabilities
 - **Bright Data** for reliable scraping browser infrastructure
 - **Render** for the excellent deployment platform
