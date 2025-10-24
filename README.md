@@ -21,8 +21,31 @@
 
 <div align="center">
 
-| <a href="https://thordata.com" target="_blank"><img src="assets/thordata-logo.png" alt="Thordata Logo" width="200" height="200"/></a> | **Sponsored by [Thordata](https://thordata.com)** — powering reliable proxy infrastructure for developers and data engineers.<br/><br/>**Use code "THOR66" at checkout for 30% off!** |
-| :-----------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+<table>
+  <tr>
+    <td align="center" width="220">
+      <a href="https://cyberyozh.com" target="_blank">
+        <img src="assets/cyberyozh-logo.jpeg" alt="CyberYozh Logo" width="200" height="200"/>
+      </a>
+    </td>
+    <td>
+      <strong>CyberYozh</strong> - Reliable SMS activation, residential proxies, and mobile proxies for multi-accounting.<br/><br/>
+      We have gathered the best solutions for multi-accounting and automation in one place.
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="220">
+      <a href="https://thordata.com" target="_blank">
+        <img src="assets/thordata-logo.png" alt="Thordata Logo" width="200" height="200"/>
+      </a>
+    </td>
+    <td>
+      <strong>Thordata</strong> - Easy access to web data at scale, perfect for AI.<br/><br/>
+      A global network of 60M+ residential proxies with 99.7% availability, ensuring stable and reliable web data scraping to support AI, BI, and workflows.<br/><br/>
+      <strong>Exclusive: Use code "THOR66" for 30% off your first purchase!</strong>
+    </td>
+  </tr>
+</table>
 
 </div>
 
