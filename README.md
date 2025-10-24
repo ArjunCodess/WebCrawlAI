@@ -21,7 +21,7 @@
 
 <div align="center">
 
-| <a href="https://thordata.com" target="_blank"><img src="assets/thordata-logo.png" alt="Thordata Logo" width="100" height="100"/></a> | **Sponsored by [Thordata](https://thordata.com)** — powering reliable proxy infrastructure for developers and data engineers.<br/><br/>**Use code "THOR66" at checkout for 30% off!** |
+| <a href="https://thordata.com" target="_blank"><img src="assets/thordata-logo.png" alt="Thordata Logo" width="200" height="200"/></a> | **Sponsored by [Thordata](https://thordata.com)** — powering reliable proxy infrastructure for developers and data engineers.<br/><br/>**Use code "THOR66" at checkout for 30% off!** |
 | :-----------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 
 </div>
