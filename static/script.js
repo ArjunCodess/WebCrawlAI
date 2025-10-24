@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // If result is already a JSON string, parse it
             const parsed = typeof result === 'string' ? JSON.parse(result) : result;
             return JSON.stringify(parsed, null, 2);
-        } catch (e) {
+        } catch {
             return result; // Return as is if parsing fails
         }
     };
