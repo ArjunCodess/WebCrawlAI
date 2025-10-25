@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, send_file
 import json
 from utils.scrape import (
     scrape_website,
@@ -7,8 +7,13 @@ from utils.scrape import (
     split_dom_content,
 )
 from utils.parse import parse_with_gemini
+import os
 
 app = Flask(__name__, static_url_path='/static')
+
+@app.route('/assets/<path:filename>')
+def serve_assets(filename):
+    return send_from_directory('assets', filename)
 
 @app.route('/')
 def index():
