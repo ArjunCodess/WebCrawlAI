@@ -19,33 +19,54 @@
 
 ## 🏆 Sponsors
 
+### CyberYozh
+
+<div align="center">
+  <img src="assets/cyberyozh-banner.png" alt="CyberYozh Banner" width="100%"/>
+</div>
+
 <div align="center">
 
 <table>
   <tr>
-    <td align="center" width="220">
-      <a href="https://cyberyozh.com" target="_blank">
-        <img src="assets/cyberyozh-logo.jpeg" alt="CyberYozh Logo" width="200" height="200"/>
+    <td align="center" width="200">
+      <a href="https://app.cyberyozh.com/?utm_source=github&utm_medium=webcrawlai" target="_blank">
+        <img src="assets/cyberyozh-logo.jpeg" alt="CyberYozh Logo" width="150" height="150"/>
       </a>
     </td>
-    <td>
+    <td align="left" width="600">
       <strong>CyberYozh</strong> - Reliable SMS activation, residential proxies, and mobile proxies for multi-accounting.<br/><br/>
       We have gathered the best solutions for multi-accounting and automation in one place.
     </td>
   </tr>
+</table>
+
+</div>
+
+---
+
+### Thordata
+
+<div align="center">
+  <img src="assets/thordata-banner.png" alt="Thordata Banner" width="100%"/>
+</div>
+
+<div align="center">
+
+<table>
   <tr>
-     <td align="center" width="220">
-       <a href="https://dashboard.thordata.com/register?invitation_code=0HSUJ23G" target="_blank">
-         <img src="assets/thordata-logo.png" alt="Thordata Logo" width="200" height="200"/>
-       </a>
-     </td>
-     <td>
-       <strong>Thordata</strong> - Easy access to web data at scale, perfect for AI.<br/><br/>
-       A global network of 60M+ residential proxies with 99.7% availability, ensuring stable and reliable web data scraping to support AI, BI, and workflows.<br/><br/>
-       <strong>🎁 Free Trial Available!</strong> Start with our free trial to experience reliable proxy infrastructure.<br/><br/>
-       <strong>💰 Exclusive: Use code "THOR66" for 30% off your first purchase!</strong><br/>
-       <strong>🔗 Register with invitation code "0HSUJ23G" or <a href="https://dashboard.thordata.com/register?invitation_code=0HSUJ23G" target="_blank">click here</a></strong>
-     </td>
+    <td align="center" width="200">
+      <a href="https://dashboard.thordata.com/register?invitation_code=0HSUJ23G" target="_blank">
+        <img src="assets/thordata-logo.png" alt="Thordata Logo" width="150" height="150"/>
+      </a>
+    </td>
+    <td align="left" width="600">
+      <strong>Thordata</strong> - Easy access to web data at scale, perfect for AI.<br/><br/>
+      A global network of 60M+ residential proxies with 99.7% availability, ensuring stable and reliable web data scraping to support AI, BI, and workflows.<br/><br/>
+      <strong>🎁 Free Trial Available!</strong> Start with our free trial to experience reliable proxy infrastructure.<br/><br/>
+      <strong>💰 Exclusive: Use code "THOR66" for 30% off your first purchase!</strong><br/>
+      <strong>🔗 Register with invitation code "0HSUJ23G" or <a href="https://dashboard.thordata.com/register?invitation_code=0HSUJ23G" target="_blank">click here</a></strong>
+    </td>
   </tr>
 </table>
 
