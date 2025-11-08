@@ -7,7 +7,7 @@ load_dotenv()
 
 # Configure Gemini API
 genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-2.5-pro')
 
 def clean_json_response(text):
     """Clean the response to extract only the JSON part"""
