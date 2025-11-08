@@ -222,7 +222,6 @@ The project is configured for deployment on Render with the following setup:
    THORDATA_PASSWORD="your_thordata_password"
    THORDATA_PROXY_SERVER="your_thordata_proxy_server"
    GEMINI_API_KEY="your_google_gemini_api_key"
-   FLASK_ENV="production"
    ```
 
 3. **Service Configuration**
