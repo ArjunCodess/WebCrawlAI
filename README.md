@@ -129,7 +129,7 @@ These instructions will get you a copy of the project up and running on your loc
    GEMINI_API_KEY="your_google_gemini_api_key"
    ```
 
-   Note: If you don't set these environment variables, the code will use the default ThorData credentials provided in the example.
+   **Note:** All environment variables are required. The application will raise an error if any ThorData proxy configuration is missing.
 
 4. **Run the application**
 
