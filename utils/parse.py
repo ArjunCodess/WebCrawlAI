@@ -23,7 +23,7 @@ def clean_json_response(text):
         # Parse and re-format JSON
         parsed_json = json.loads(json_str)
         return json.dumps(parsed_json, indent=2)
-    except (ValueError, json.JSONDecodeError) as e:
+    except (ValueError, json.JSONDecodeError):
         return text
 
 def smart_merge_dicts(dicts):
@@ -82,6 +82,9 @@ def parse_with_gemini(dom_chunks, parse_description):
     Parse content chunks with AI, accumulating context across batches.
     Each batch sees the accumulated data from previous batches.
     """
+    if not dom_chunks or len(dom_chunks) == 0:
+        return '{}'
+    
     initial_prompt_template = """
     Extract information from the following text content and return it as a CLEAN JSON object.
 
@@ -128,6 +131,9 @@ def parse_with_gemini(dom_chunks, parse_description):
                     description=parse_description
                 )
                 response = model.generate_content(prompt)
+                if not response or not hasattr(response, 'text') or not response.text:
+                    print(f"Warning: Empty or invalid response from Gemini API for chunk {i}")
+                    continue
                 result = clean_json_response(response.text.strip())
 
                 if result and result != '{}':
@@ -144,6 +150,9 @@ def parse_with_gemini(dom_chunks, parse_description):
                     description=parse_description
                 )
                 response = model.generate_content(prompt)
+                if not response or not hasattr(response, 'text') or not response.text:
+                    print(f"Warning: Empty or invalid response from Gemini API for chunk {i}")
+                    continue
                 result = clean_json_response(response.text.strip())
 
                 if result and result != '{}':

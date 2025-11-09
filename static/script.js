@@ -43,11 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             // Only display the result part, properly formatted
-            const formattedResult = formatResult(response.data.result);
-            elements.results.textContent = formattedResult;
-            elements.resultsSection.classList.remove('hidden');
+            if (response.data && response.data.result !== undefined) {
+                const formattedResult = formatResult(response.data.result);
+                elements.results.textContent = formattedResult;
+                elements.resultsSection.classList.remove('hidden');
+            } else {
+                showError('Invalid response from server');
+            }
         } catch (error) {
-            showError(error.response?.data?.error || 'Failed to extract information');
+            showError(error.response?.data?.error || error.message || 'Failed to extract information');
         } finally {
             hideLoading();
         }
