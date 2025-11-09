@@ -41,47 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 url: url,
                 parse_description: prompt
             });
-            
+
             // Only display the result part, properly formatted
-            const formattedResult = formatResult(response.data.result);
-            elements.results.textContent = formattedResult;
-            elements.resultsSection.classList.remove('hidden');
-
-            // Send event tracking data
-            const API_KEY = process.env.ANALYZR_API_KEY;
-            const trackingUrl = "https://getanalyzr.vercel.app/api/events";
-            const headers = {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${API_KEY}`
-            };
-
-            const eventData = {
-                name: "Information Extracted",
-                domain: window.location.hostname || 'localhost',
-                description: `Extracted information from URL: ${url}`,
-                emoji: "🔍",
-                fields: [
-                    {
-                        name: "URL",
-                        value: url,
-                        inline: true
-                    },
-                    {
-                        name: "Prompt",
-                        value: prompt,
-                        inline: true
-                    }
-                ]
-            };
-
-            try {
-                await axios.post(trackingUrl, eventData, { headers });
-                console.log("Event tracking successful");
-            } catch (error) {
-                console.error("Event tracking error:", error.response ? error.response.data : error.message);
+            if (response.data && response.data.result !== undefined) {
+                const formattedResult = formatResult(response.data.result);
+                elements.results.textContent = formattedResult;
+                elements.resultsSection.classList.remove('hidden');
+            } else {
+                showError('Invalid response from server');
             }
         } catch (error) {
-            showError(error.response?.data?.error || 'Failed to extract information');
+            showError(error.response?.data?.error || error.message || 'Failed to extract information');
         } finally {
             hideLoading();
         }

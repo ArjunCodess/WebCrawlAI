@@ -101,7 +101,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 - **Python** (v3.8 or higher)
 - **pip** package manager
-- **Bright Data Scraping Browser** account (for SBR_WEBDRIVER)
+- **ThorData Residential Proxy** account (for web scraping)
 - **Google Gemini API Key** (for AI-powered extraction)
 
 ### Installing
@@ -123,9 +123,13 @@ These instructions will get you a copy of the project up and running on your loc
    Create a `.env` file and configure the required variables:
 
    ```env
-   SBR_WEBDRIVER="your_bright_data_scraping_browser_url"
+   THORDATA_USERNAME="your_thordata_username"
+   THORDATA_PASSWORD="your_thordata_password"
+   THORDATA_PROXY_SERVER="your_thordata_proxy_server"
    GEMINI_API_KEY="your_google_gemini_api_key"
    ```
+
+   **Note:** All environment variables are required. The application will raise an error if any ThorData proxy configuration is missing.
 
 4. **Run the application**
 
@@ -214,9 +218,10 @@ The project is configured for deployment on Render with the following setup:
 2. **Required Environment Variables**
 
    ```env
-   SBR_WEBDRIVER="your_bright_data_scraping_browser_url"
+   THORDATA_USERNAME="your_thordata_username"
+   THORDATA_PASSWORD="your_thordata_password"
+   THORDATA_PROXY_SERVER="your_thordata_proxy_server"
    GEMINI_API_KEY="your_google_gemini_api_key"
-   FLASK_ENV="production"
    ```
 
 3. **Service Configuration**
@@ -233,7 +238,7 @@ The project is configured for deployment on Render with the following setup:
 
 ### Additional Services
 
-- **Bright Data Scraping Browser**: For reliable web scraping with CAPTCHA handling
+- **ThorData Residential Proxy**: For reliable web scraping with 60M+ residential proxies
 - **Google Gemini AI**: For intelligent data extraction and parsing
 - **GetAnalyzr**: For usage analytics and monitoring
 
@@ -286,10 +291,11 @@ The project is configured for deployment on Render with the following setup:
 
 ### Web Scraping & Automation
 
+- [Requests](https://requests.readthedocs.io/) - HTTP Library for Python
 - [Selenium](https://selenium-python.readthedocs.io/) - Browser Automation (v4.16.0)
 - [lxml](https://lxml.de/) - Fast XML and HTML Processing
 - [html5lib](https://html5lib.readthedocs.io/) - HTML Document Parser
-- [Bright Data Scraping Browser](https://brightdata.com/products/scraping-browser) - Managed Browser Service
+- [ThorData Residential Proxy](https://thordata.com) - Global network of 60M+ residential proxies
 
 ### AI & Machine Learning
 
@@ -328,7 +334,7 @@ _Note: This project embraces open-source values and transparency. We love open s
 ### Technology Partners
 
 - **Google** for providing the Gemini AI model that powers our intelligent extraction capabilities
-- **Bright Data** for reliable scraping browser infrastructure
+- **ThorData** for reliable residential proxy infrastructure with 60M+ proxies
 - **Render** for the excellent deployment platform
 - **Flask Team** for the robust web framework
 - **Selenium** for powerful browser automation capabilities
