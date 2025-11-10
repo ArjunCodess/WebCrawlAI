@@ -32,7 +32,7 @@ def get_proxies():
     validate_proxy_config()
     return {
         "http": f"http://{THORDATA_USERNAME}:{THORDATA_PASSWORD}@{THORDATA_PROXY_SERVER}",
-        "https": f"https://{THORDATA_USERNAME}:{THORDATA_PASSWORD}@{THORDATA_PROXY_SERVER}"
+        "https": f"http://{THORDATA_USERNAME}:{THORDATA_PASSWORD}@{THORDATA_PROXY_SERVER}"
     }
 
 def validate_url(url):

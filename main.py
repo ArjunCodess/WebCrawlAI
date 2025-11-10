@@ -87,4 +87,13 @@ def scrape_and_parse():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-    app.run()
+    port = int(os.environ.get('PORT', 5000))
+
+    # use waitress for production, flask dev server for local
+    if os.environ.get('ENVIRONMENT') == 'production':
+        from waitress import serve
+        print(f"Starting production server on 0.0.0.0:{port}")
+        serve(app, host='0.0.0.0', port=port)
+    else:
+        print(f"Starting development server on 0.0.0.0:{port}")
+        app.run(host='0.0.0.0', port=port, debug=True)
