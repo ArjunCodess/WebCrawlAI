@@ -8,8 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsSection: document.getElementById('resultsSection')
     };
 
-    const showLoading = () => elements.loadingSpinner.classList.remove('hidden');
-    const hideLoading = () => elements.loadingSpinner.classList.add('hidden');
+    const showLoading = () => {
+        elements.loadingSpinner.classList.remove('hidden');
+        elements.loadingSpinner.classList.add('flex');
+    };
+    const hideLoading = () => {
+        elements.loadingSpinner.classList.add('hidden');
+        elements.loadingSpinner.classList.remove('flex');
+    };
 
     const showError = (message) => {
         alert(message);
