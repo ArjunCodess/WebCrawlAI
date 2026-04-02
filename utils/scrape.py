@@ -12,24 +12,14 @@ THORDATA_USERNAME = os.getenv("THORDATA_USERNAME")
 THORDATA_PASSWORD = os.getenv("THORDATA_PASSWORD")
 THORDATA_PROXY_SERVER = os.getenv("THORDATA_PROXY_SERVER")
 
-def validate_proxy_config():
-    """Validate that all required ThorData proxy configuration is present"""
-    missing = []
-    if not THORDATA_USERNAME:
-        missing.append("THORDATA_USERNAME")
-    if not THORDATA_PASSWORD:
-        missing.append("THORDATA_PASSWORD")
-    if not THORDATA_PROXY_SERVER:
-        missing.append("THORDATA_PROXY_SERVER")
-    
-    if missing:
-        raise ValueError(
-            f"Missing required ThorData proxy configuration. Please set the following environment variables: {', '.join(missing)}"
-        )
+def has_proxy_config():
+    """Check if ThorData proxy configuration is available"""
+    return all([THORDATA_USERNAME, THORDATA_PASSWORD, THORDATA_PROXY_SERVER])
 
 def get_proxies():
-    """Create proxy configuration for ThorData residential proxy"""
-    validate_proxy_config()
+    """Create proxy configuration for ThorData residential proxy, or None if not configured"""
+    if not has_proxy_config():
+        return None
     return {
         "http": f"http://{THORDATA_USERNAME}:{THORDATA_PASSWORD}@{THORDATA_PROXY_SERVER}",
         "https": f"http://{THORDATA_USERNAME}:{THORDATA_PASSWORD}@{THORDATA_PROXY_SERVER}"
@@ -47,27 +37,50 @@ def validate_url(url):
     except Exception as e:
         raise ValueError(f"Invalid URL format: {str(e)}")
 
+def _fetch(website, headers, proxies=None):
+    """Make a single GET request, optionally through a proxy"""
+    label = "via proxy" if proxies else "directly"
+    print(f"  Connecting to {website} {label}...")
+
+    response = requests.get(
+        website,
+        proxies=proxies,
+        headers=headers,
+        timeout=30,
+        allow_redirects=True
+    )
+    response.raise_for_status()
+
+    if response.encoding is None or response.encoding == 'ISO-8859-1':
+        response.encoding = response.apparent_encoding or 'utf-8'
+
+    html = response.text
+    if not html:
+        raise Exception("Empty page content received")
+
+    print(f"  Page content retrieved successfully ({label})")
+    return html
+
 def scrape_website(website):
     """
-    Scrape a website using ThorData residential proxy
-    
+    Scrape a website, trying ThorData proxy first and falling back to a direct request.
+
     Args:
         website: URL of the website to scrape
-        
+
     Returns:
         str: HTML content of the website
-        
+
     Raises:
-        ValueError: If URL is invalid or proxy configuration is missing
+        ValueError: If URL is invalid
         Exception: If scraping fails after all retries
     """
-    # Validate URL format
     validate_url(website)
-    
+
     max_retries = 3
     retry_delay = 2
-    
     proxies = get_proxies()
+
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
@@ -76,73 +89,38 @@ def scrape_website(website):
         'Connection': 'keep-alive',
         'Upgrade-Insecure-Requests': '1'
     }
-    
+
+    last_error = None
+
     for attempt in range(max_retries):
+        print(f"Attempt {attempt + 1} of {max_retries}")
+
+        # --- try with proxy first (if configured) ---
+        if proxies:
+            try:
+                return _fetch(website, headers, proxies=proxies)
+            except (requests.exceptions.ProxyError, requests.exceptions.SSLError) as e:
+                print(f"  Proxy/SSL error: {e}")
+                print("  Falling back to direct request...")
+            except requests.exceptions.Timeout as e:
+                print(f"  Timeout via proxy: {e}")
+                print("  Falling back to direct request...")
+            except requests.exceptions.HTTPError as e:
+                print(f"  HTTP {e.response.status_code} via proxy: {e}")
+                print("  Falling back to direct request...")
+
+        # --- fall back to direct request ---
         try:
-            print(f"Attempt {attempt + 1} of {max_retries}")
-            print(f"Connecting to {website} via ThorData residential proxy...")
-            
-            response = requests.get(
-                website, 
-                proxies=proxies, 
-                headers=headers, 
-                timeout=30,
-                allow_redirects=True
-            )
-            response.raise_for_status()
-            
-            # Handle encoding properly
-            if response.encoding is None or response.encoding == 'ISO-8859-1':
-                response.encoding = response.apparent_encoding or 'utf-8'
-            
-            print("Page content retrieved successfully")
-            html = response.text
-            
-            if html and len(html) > 0:
-                return html
-            else:
-                raise Exception("Empty page content received")
-                
-        except requests.exceptions.ProxyError as e:
-            error_msg = f"Proxy error during attempt {attempt + 1}: {str(e)}"
-            print(error_msg)
-            if attempt < max_retries - 1:
-                print(f"Retrying in {retry_delay} seconds...")
-                time.sleep(retry_delay)
-            else:
-                raise Exception(f"Failed to scrape after {max_retries} attempts due to proxy error: {str(e)}")
-        except requests.exceptions.Timeout as e:
-            error_msg = f"Timeout error during attempt {attempt + 1}: {str(e)}"
-            print(error_msg)
-            if attempt < max_retries - 1:
-                print(f"Retrying in {retry_delay} seconds...")
-                time.sleep(retry_delay)
-            else:
-                raise Exception(f"Failed to scrape after {max_retries} attempts due to timeout: {str(e)}")
-        except requests.exceptions.HTTPError as e:
-            error_msg = f"HTTP error during attempt {attempt + 1}: {e.response.status_code} - {str(e)}"
-            print(error_msg)
-            if attempt < max_retries - 1:
-                print(f"Retrying in {retry_delay} seconds...")
-                time.sleep(retry_delay)
-            else:
-                raise Exception(f"Failed to scrape after {max_retries} attempts. HTTP {e.response.status_code}: {str(e)}")
-        except requests.exceptions.RequestException as e:
-            error_msg = f"Request error during attempt {attempt + 1}: {str(e)}"
-            print(error_msg)
-            if attempt < max_retries - 1:
-                print(f"Retrying in {retry_delay} seconds...")
-                time.sleep(retry_delay)
-            else:
-                raise Exception(f"Failed to scrape after {max_retries} attempts: {str(e)}")
+            return _fetch(website, headers, proxies=None)
         except Exception as e:
-            error_msg = f"Unexpected error during attempt {attempt + 1}: {str(e)}"
-            print(error_msg)
-            if attempt < max_retries - 1:
-                print(f"Retrying in {retry_delay} seconds...")
-                time.sleep(retry_delay)
-            else:
-                raise Exception(f"Failed to scrape after {max_retries} attempts: {str(e)}")
+            last_error = e
+            print(f"  Direct request failed: {e}")
+
+        if attempt < max_retries - 1:
+            print(f"  Retrying in {retry_delay}s...")
+            time.sleep(retry_delay)
+
+    raise Exception(f"Failed to scrape after {max_retries} attempts: {last_error}")
 
 def extract_body_content(html_content):
     soup = BeautifulSoup(html_content, "html.parser")
