@@ -1,13 +1,13 @@
 import os
 import json
 from dotenv import load_dotenv
-import google.generativeai as genai
+from google import genai
 
 load_dotenv()
 
-# Configure Gemini API
-genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
-model = genai.GenerativeModel('gemini-flash-latest')
+# Configure Gemini API using the modern google-genai SDK
+client = genai.Client(api_key=os.getenv('GEMINI_API_KEY'))
+MODEL = 'gemini-2.0-flash'
 
 def clean_json_response(text):
     """Clean the response to extract only the JSON part"""
@@ -130,8 +130,10 @@ def parse_with_gemini(dom_chunks, parse_description):
                     content=chunk,
                     description=parse_description
                 )
-                response = model.generate_content(prompt)
-                if not response or not hasattr(response, 'text') or not response.text:
+                response = client.models.generate_content(
+                    model=MODEL, contents=prompt
+                )
+                if not response or not response.text:
                     print(f"Warning: Empty or invalid response from Gemini API for chunk {i}")
                     continue
                 result = clean_json_response(response.text.strip())
@@ -149,8 +151,10 @@ def parse_with_gemini(dom_chunks, parse_description):
                     new_content=chunk,
                     description=parse_description
                 )
-                response = model.generate_content(prompt)
-                if not response or not hasattr(response, 'text') or not response.text:
+                response = client.models.generate_content(
+                    model=MODEL, contents=prompt
+                )
+                if not response or not response.text:
                     print(f"Warning: Empty or invalid response from Gemini API for chunk {i}")
                     continue
                 result = clean_json_response(response.text.strip())
