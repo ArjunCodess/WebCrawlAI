@@ -8,21 +8,25 @@ from urllib.parse import urlparse
 load_dotenv()
 
 # ThorData proxy configuration
-THORDATA_USERNAME = os.getenv("THORDATA_USERNAME")
+# Username format: td-customer-YOUR_USERNAME
+# Host: t.pr.thordata.net, Port: 9999
+THORDATA_USERNAME = os.getenv("THORDATA_USERNAME")  # e.g. td-customer-myuser
 THORDATA_PASSWORD = os.getenv("THORDATA_PASSWORD")
-THORDATA_PROXY_SERVER = os.getenv("THORDATA_PROXY_SERVER")
+THORDATA_HOST = os.getenv("THORDATA_HOST", "t.pr.thordata.net")
+THORDATA_PORT = os.getenv("THORDATA_PORT", "9999")
 
 def has_proxy_config():
     """Check if ThorData proxy configuration is available"""
-    return all([THORDATA_USERNAME, THORDATA_PASSWORD, THORDATA_PROXY_SERVER])
+    return all([THORDATA_USERNAME, THORDATA_PASSWORD])
 
 def get_proxies():
     """Create proxy configuration for ThorData residential proxy, or None if not configured"""
     if not has_proxy_config():
         return None
+    proxy_url = f"http://{THORDATA_USERNAME}:{THORDATA_PASSWORD}@{THORDATA_HOST}:{THORDATA_PORT}"
     return {
-        "http": f"http://{THORDATA_USERNAME}:{THORDATA_PASSWORD}@{THORDATA_PROXY_SERVER}",
-        "https": f"http://{THORDATA_USERNAME}:{THORDATA_PASSWORD}@{THORDATA_PROXY_SERVER}"
+        "http": proxy_url,
+        "https": proxy_url
     }
 
 def validate_url(url):

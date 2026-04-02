@@ -11,7 +11,5 @@ services:
         sync: false
       - key: THORDATA_PASSWORD
         sync: false
-      - key: THORDATA_PROXY_SERVER
-        sync: false
       - key: GEMINI_API_KEY
         sync: false
