@@ -19,6 +19,62 @@
 
 ## 🏆 Sponsors
 
+### RapidProxy
+
+<div align="center">
+  <img src="assets/rapidproxy-banner.png" alt="RapidProxy Banner" width="100%"/>
+</div>
+
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center" width="200">
+      <a href="https://www.rapidproxy.io/?ref=WebCrawlAI" target="_blank">
+        <img src="assets/rapidproxy-logo.png" alt="RapidProxy Logo" width="150" height="150"/>
+      </a>
+    </td>
+    <td align="left" width="600">
+      <strong>RapidProxy</strong> - Stable, scalable residential proxies for efficient data collection.<br/><br/>
+      RapidProxy offers 90M+ real residential IPs across 200+ locations, with high concurrency, smart IP rotation, non-expiring traffic, and AI-powered CAPTCHA bypass. Built for developers, data engineers, and businesses working on web scraping, market research, e-commerce, social media automation, and large-scale data operations.<br/><br/>
+      <strong><a href="https://www.rapidproxy.io/?ref=WebCrawlAI" target="_blank">Visit RapidProxy</a></strong> or view the <strong><a href="https://docs.rapidproxy.io/" target="_blank">RapidProxy tutorial</a></strong>.
+    </td>
+  </tr>
+</table>
+
+</div>
+
+---
+
+### Swiftproxy
+
+<div align="center">
+  <img src="assets/swiftproxy-banner.png" alt="Swiftproxy Banner" width="100%"/>
+</div>
+
+<div align="center">
+
+<table>
+  <tr>
+    <td align="center" width="200">
+      <a href="https://www.swiftproxy.net/?ref=WebCrawlAI" target="_blank">
+        <img src="assets/swiftproxy-logo.png" alt="Swiftproxy Logo" width="150" height="150"/>
+      </a>
+    </td>
+    <td align="left" width="600">
+      <strong>Swiftproxy</strong> - Seamless access to global web data at scale.<br/><br/>
+      Powered by an 80M+ ethically sourced residential IP pool across 195+ countries, Swiftproxy delivers fast, stable, and secure connections for web scraping, AI, BI, and automation workflows.<br/><br/>
+      <strong>Free Trial Available!</strong> Experience reliable proxy infrastructure today.<br/><br/>
+      <strong>Exclusive: Use code "PROXY90" for 10% off your first purchase!</strong><br/>
+      <strong><a href="https://www.swiftproxy.net/?ref=WebCrawlAI" target="_blank">Visit Swiftproxy</a></strong>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+---
+
 ### CyberYozh
 
 <div align="center">
@@ -328,6 +384,8 @@ _Note: This project embraces open-source values and transparency. We love open s
 
 ### Sponsors
 
+- **[RapidProxy](https://www.rapidproxy.io/?ref=WebCrawlAI)** for providing 90M+ residential IPs, smart IP rotation, non-expiring traffic, and AI-powered CAPTCHA bypass for scalable data collection
+- **[Swiftproxy](https://www.swiftproxy.net/?ref=WebCrawlAI)** for providing an 80M+ ethically sourced residential proxy network for web scraping, AI, BI, and automation workflows
 - **[CyberYozh](https://cyberyozh.com)** for providing reliable SMS activation and proxy solutions for multi-accounting and automation
 - **[Thordata](https://thordata.com)** for powering our web scraping infrastructure with their global network of 60M+ residential proxies
 
